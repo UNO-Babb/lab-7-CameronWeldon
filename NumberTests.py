@@ -85,6 +85,24 @@ def SummationOfPrimes(limit):
 
   return sum(i for i, is_prime in enumerate(sieve) if is_prime)
 
+def sum_of_proper_divisors(n):
+    total = 1  # 1 is always a divisor
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            total += i
+            if i != n // i:
+                total += n // i
+    return total
+
+def find_amicable_numbers(limit):
+    amicables = set()
+    for a in range(2, limit):
+        b = sum_of_proper_divisors(a)
+        if b != a and sum_of_proper_divisors(b) == a:
+            amicables.add(a)
+            amicables.add(b)
+    return amicables
+
 
 if __name__ == '__main__':
     main()

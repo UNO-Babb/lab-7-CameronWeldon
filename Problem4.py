@@ -1,4 +1,5 @@
-# main.py
+#Problem4.py
+#Project Euler problem #10
 
 from NumberTests import SummationOfPrimes
 
